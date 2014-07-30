@@ -456,12 +456,15 @@ module.exports = function (grunt) {
         'karma'
     ]);
 
+    grunt.registerTask('e2e:prepare', [
+      'protractor_webdriver:prepare'
+    ]);
+
     grunt.registerTask('e2e', [
         'clean:server',
         'concurrent:test',
         'autoprefixer',
         'connect:test',
-        'protractor_webdriver:prepare',
         'protractor_webdriver:run',
         'protractor:run'
     ]);
