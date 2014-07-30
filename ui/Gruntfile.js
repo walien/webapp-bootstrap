@@ -411,10 +411,16 @@ module.exports = function (grunt) {
         },
 
         protractor_webdriver: {
-            run: {
+            prepare: {
                 options: {
                     path: 'node_modules/protractor/bin/',
                     command: 'webdriver-manager update'
+                }
+            },
+            run: {
+                options: {
+                    path: 'node_modules/protractor/bin/',
+                    command: 'webdriver-manager start'
                 }
             }
         }
@@ -455,6 +461,7 @@ module.exports = function (grunt) {
         'concurrent:test',
         'autoprefixer',
         'connect:test',
+        'protractor_webdriver:prepare',
         'protractor_webdriver:run',
         'protractor:run'
     ]);
